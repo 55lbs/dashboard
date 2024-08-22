@@ -1,4 +1,8 @@
 ---
+import '@fontsource/oswald';
+import '@fontsource/roboto';
+import '../styles/global.css';
+
 import LanguagePicker from '../components/LanguagePicker.astro';
 
 const title = Astro.props.title;
@@ -8,10 +12,31 @@ const paraglide = Astro.locals.paraglide;
 <html lang={paraglide.lang} dir={paraglide.dir}>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <meta
+      name="description"
+      content="Alcance novas alturas e celebre vitórias com nosso sistema de acompanhamento de classificação. Libere o potencial da competição e veja seus resultados decolarem."
+    />
+    <meta
+      name="keywords"
+      content="Aplicativo de Classificação, Acompanhamento de Desempenho, Espírito Competitivo, Classificações em Tempo Real, Gamificação, Aumento de Engajamento, Acompanhamento de Conquistas, Métricas de Sucesso, Placares, Motivação do Usuário"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
   </head>
   <body>
     <main>

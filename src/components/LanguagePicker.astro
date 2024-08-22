@@ -1,9 +1,8 @@
 ---
-import * as m from '../paraglide/messages';
-import { languageTag } from '../paraglide/runtime';
+import { messages as m, runtime } from '@55lbs/i18n';
 
 const makeUrlForLanguage = (lang: string) =>
-  `/${lang}${Astro.url.pathname.replace(`/${languageTag()}`, '')}`;
+  `/${lang}${Astro.url.pathname.replace(`/${runtime.languageTag()}`, '')}`;
 ---
 
 <ul>
