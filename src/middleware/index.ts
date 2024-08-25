@@ -9,5 +9,10 @@ export const onRequest = defineMiddleware((context, next) => {
     return context.redirect(`/pt-br/${pathName}`);
   }
 
+  // If you want to redirect to the default language
+  if (!lang) {
+    return context.redirect(`/en`);
+  }
+
   return next();
 });

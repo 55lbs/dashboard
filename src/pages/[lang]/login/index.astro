@@ -1,14 +1,109 @@
 ---
+import { FaGoogle, FaSpinner } from 'react-icons/fa';
+import { Button, Label, Input } from '@55lbs/components';
 import Layout from '../../../layouts/Layout.astro';
 import { messages as m } from '@55lbs/i18n';
+import Logo from '@/components/Logo.astro';
 
 // Use this is you want to statically generate pages (output: 'server' in astro.config.mjs)
 // import { availableLanguageTags } from '../../paraglide/runtime';
 // export function getStaticPaths() {
 //   return availableLanguageTags.map((lang) => ({ params: { lang } }));
 // }
+const isLoading = false;
 ---
 
 <Layout title={m.loginTitle()}>
-  <h1>{m.loginHeading()}</h1>
+  <div
+    class="flex justify-center items-center w-screen h-screen bg-slate-300 dark:bg-background"
+  >
+  <!-- w-[95%] min-w-[300px] -->
+    <div class="[width:clamp(50%, 95%, 600px)] min-h-9 grid grid-cols-1 md:grid-cols-2">
+      <div
+        class="col-span-1 p-8 bg-slate-500 bg-[url('/assets/login-bg.jpg')] bg-center"
+      >
+        <div class="w-20">
+          <Logo />
+        </div>
+      </div>
+      <div class="col-span-1 p-4 py-16 bg-white force-light">
+        <div
+          class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]"
+        >
+          <div class="flex flex-col space-y-2 text-center">
+            <h1 class="text-2xl font-semibold tracking-tight text-foreground">
+              {m.loginCreateAnAccount()}
+            </h1>
+            <p class="text-sm text-muted-foreground">
+              {m.loginEnterYourEmailBelowToCreateYourAccount()}
+            </p>
+          </div>
+
+          <div class="grid gap-6">
+            <form>
+              <div class="grid gap-2">
+                <div class="grid gap-1">
+                  <Label className="sr-only" htmlFor="email">{m.email()}</Label>
+                  <Input
+                    id="email"
+                    placeholder={m.emailPlaceholder()}
+                    type="email"
+                    autoCapitalize="none"
+                    autoComplete="email"
+                    autoCorrect="off"
+                    disabled={isLoading}
+                  />
+                </div>
+                <Button disabled={isLoading}>
+                  {
+                    isLoading && (
+                      <FaSpinner className="mr-2 h-4 w-4 animate-spin" />
+                    )
+                  }
+                  {m.loginSignInWithEmail()}
+                </Button>
+              </div>
+            </form>
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center">
+                <span class="w-full border-t"></span>
+              </div>
+              <div class="relative flex justify-center text-xs uppercase">
+                <span class="bg-white px-2 text-muted-foreground">
+                  {m.loginOrContinueWith()}
+                </span>
+              </div>
+            </div>
+            <Button variant="default" type="button" disabled={isLoading}>
+              {
+                isLoading ? (
+                  <FaSpinner className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <FaGoogle className="mr-2 h-4 w-4" />
+                )
+              }{' '}
+              {m.google()}
+            </Button>
+          </div>
+          <p class="px-8 text-center text-sm text-muted-foreground">
+            {m.loginByClickingContinueYouAgreeToOur()}{' '}
+            <a
+              href="/terms"
+              class="underline underline-offset-4 hover:text-primary"
+            >
+              {m.termsOfService()}
+            </a>{' '}
+            {m.and()}{' '}
+            <a
+              href="/privacy"
+              class="underline underline-offset-4 hover:text-primary"
+            >
+              {m.policyPrivacy()}
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>

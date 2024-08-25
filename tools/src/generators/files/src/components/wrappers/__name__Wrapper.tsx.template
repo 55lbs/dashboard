@@ -1,0 +1,5 @@
+import { <%= name %> } from '@55lbs/components';
+
+export function <%= name %>Wrapper(props) {
+  return <<%= name %> {...props} />;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "internal-tools",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools",
+        "main": "tools/src/index.ts",
+        "tsConfig": "tools/tsconfig.lib.json",
+        "assets": ["tools/*.md"]
+      }
+    }
+  }
+}

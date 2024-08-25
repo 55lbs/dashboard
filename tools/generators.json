@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "astro-wrapper": {
+      "factory": "./src/generators/generator",
+      "schema": "./src/generators/schema.json",
+      "description": "Create a shadui wrapper for Astro to fix this error: https://github.com/shadcn-ui/ui/discussions/1509"
+    }
+  }
+}

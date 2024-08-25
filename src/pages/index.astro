@@ -1,9 +1,0 @@
----
-import Layout from '../layouts/Layout.astro';
-import { messages as m, runtime } from '@55lbs/i18n';
----
-
-<Layout title={m.homePageTitle()}>
-  <h1 class="">{m.homePageHeading()}</h1>
-  <p>{m.homePageContent({ languageTag: runtime.languageTag() })}</p>
-</Layout>
