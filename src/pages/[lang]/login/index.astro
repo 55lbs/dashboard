@@ -2,7 +2,7 @@
 import { FaGoogle, FaSpinner } from 'react-icons/fa';
 import { Button, Label, Input } from '@55lbs/components';
 import Layout from '../../../layouts/Layout.astro';
-import { messages as m } from '@55lbs/i18n';
+import { messages as m, runtime } from '@55lbs/i18n';
 import Logo from '@/components/Logo.astro';
 
 // Use this is you want to statically generate pages (output: 'server' in astro.config.mjs)
@@ -17,8 +17,10 @@ const isLoading = false;
   <div
     class="flex justify-center items-center w-screen h-screen bg-slate-300 dark:bg-background"
   >
-  <!-- w-[95%] min-w-[300px] -->
-    <div class="[width:clamp(50%, 95%, 600px)] min-h-9 grid grid-cols-1 md:grid-cols-2">
+    <!-- w-[95%] min-w-[300px] -->
+    <div
+      class="[width:clamp(50%, 95%, 600px)] min-h-9 grid grid-cols-1 md:grid-cols-2"
+    >
       <div
         class="col-span-1 p-8 bg-slate-500 bg-[url('/assets/login-bg.jpg')] bg-center"
       >
@@ -74,16 +76,26 @@ const isLoading = false;
                 </span>
               </div>
             </div>
-            <Button variant="default" type="button" disabled={isLoading}>
-              {
-                isLoading ? (
-                  <FaSpinner className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <FaGoogle className="mr-2 h-4 w-4" />
-                )
-              }{' '}
-              {m.google()}
-            </Button>
+            <a
+              href={`/${runtime.languageTag()}/dashboard`}
+              class="w-full block"
+            >
+              <Button
+                variant="default"
+                type="button"
+                disabled={isLoading}
+                className="w-full"
+              >
+                {
+                  isLoading ? (
+                    <FaSpinner className="mr-2 h-4 w-4 animate-spin" />
+                  ) : (
+                    <FaGoogle className="mr-2 h-4 w-4" />
+                  )
+                }{' '}
+                {m.google()}
+              </Button>
+            </a>
           </div>
           <p class="px-8 text-center text-sm text-muted-foreground">
             {m.loginByClickingContinueYouAgreeToOur()}{' '}

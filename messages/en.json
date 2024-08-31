@@ -21,5 +21,10 @@
   "signIn": "Sign in",
   "signOut": "Sign out",
   "termsOfService": "Terms of Service",
-  "loginEnterYourEmailBelowToCreateYourAccount": "Enter your email below to create your account"
+  "loginEnterYourEmailBelowToCreateYourAccount": "Enter your email below to create your account",
+  "dashboardTitle": "Dashboard - 55lbs",
+  "categories": "Categories",
+  "exerciseCardRecordCount": "{rpCount} RP of {exerciseCount} exercices",
+  "dashboardRecordOverview": "Records Overview",
+  "exerciseGroupTitle": "Exercise Groups"
 }

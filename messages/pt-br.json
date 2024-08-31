@@ -7,5 +7,19 @@
   "loginHeading": "Esta é a página de login",
   "langBasedHomePageTitle": "Página principal baseada na rota",
   "langBasedHomePageHeading": "Esta é uma página inicial baseada em parâmetros de rota de linguagem",
-  "goToLanguage": "Ir para Português"
+  "goToLanguage": "Ir para Português",
+  "and": "e",
+  "email": "E-mail",
+  "emailPlaceholder": "email@exemplo.com",
+  "google": "Google",
+  "loginByClickingContinueYouAgreeToOur": "Ao clicar em continuar, você concorda com nossos",
+  "loginCreateAnAccount": "Criar uma conta",
+  "loginEnterEmail": "Insira seu e-mail abaixo para criar sua conta",
+  "loginOrContinueWith": "Ou continue com",
+  "loginSignInWithEmail": "Entrar com e-mail",
+  "policyPrivacy": "Política de Privacidade",
+  "signIn": "Entrar",
+  "signOut": "sair",
+  "termsOfService": "Termos de serviço",
+  "loginEnterYourEmailBelowToCreateYourAccount": "Insira seu e-mail abaixo para criar sua conta"
 }

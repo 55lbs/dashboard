@@ -1,0 +1,49 @@
+---
+import HeaderMobile from '@/components/Dashboard/HeaderMobile.astro';
+import Sidebar from '@/components/Dashboard/Sidebar.astro';
+import Base from './Base.astro';
+import HeaderDesktop from '@/components/Dashboard/HeaderDesktop.astro';
+
+export type Props = {
+  title: string;
+  addToogles?: boolean;
+};
+
+const title = Astro.props.title;
+---
+
+<Base title={title} addToogles={false}>
+  <div class="flex flex-col xl:flex-row relative">
+    <div class="block xl:hidden">
+      <HeaderMobile transition:persist />
+    </div>
+    <Sidebar />
+
+    <div class="flex-1">
+      <div class="mx-auto w-full max-w-[1400px]">
+        <div class="hidden xl:block">
+          <HeaderDesktop transition:persist />
+        </div>
+
+        <div class="p-6">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener('astro:page-load', () => {
+      document.querySelectorAll('.mobile-menu').forEach((el) => {
+        el.addEventListener('click', () => {
+          const sidebar = document.getElementById('sidebar');
+          const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+          sidebar.classList.toggle('-translate-x-full');
+          sidebarOverlay.classList.toggle('hidden');
+          sidebarOverlay.classList.toggle('opacity-40');
+        });
+      });
+    });
+  </script>
+</Base>

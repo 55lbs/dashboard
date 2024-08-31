@@ -1,15 +1,14 @@
 ---
-import Svg from './Svg.astro'
+import Svg from './Svg.astro';
 
 export type Props = {
   orientation?: 'horizontal' | 'vertical';
   color?: string;
 };
 
-const { orientation = 'horizontal', color = 'white' } = Astro.props as Props;
+const { orientation = 'horizontal' } = Astro.props as Props;
 
 const logo = orientation === 'horizontal' ? 'logo.svg' : 'logo-vertical.svg';
 ---
 
-<!-- <Fragment set:html={innerHTML} /> -->
- <Svg src={`../../public/assets/${logo}`} fill={color} />
+<Svg src={`../../public/assets/${logo}`} class:list={[`fill-background`]} />

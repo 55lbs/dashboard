@@ -15,12 +15,12 @@ export function LanguageToggle({
 }) {
   const handleLanguageClick = React.useCallback((lang) => {
     location.href = `/${lang}${currentPathname.replace(`/${currentLanguage}`, '')}`;
-  }, [])
+  }, []);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" className='uppercase'>
+        <Button variant="outline" className="uppercase">
           {currentLanguage}
           <span className="sr-only">Toggle theme</span>
         </Button>

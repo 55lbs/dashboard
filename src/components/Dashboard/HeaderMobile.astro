@@ -1,0 +1,23 @@
+---
+import { Button } from '@55lbs/components';
+import { LuMenu } from 'react-icons/lu';
+import { ModeToggleSingle } from '../ModeToggleSingle';
+---
+
+<div class="flex w-full p-6 justify-between gap-4">
+  <Button variant="link" className="p-0 mobile-menu h-6 pt-[12px] block">
+    <LuMenu size="1.5em" />
+  </Button>
+  <div class="flex flex-col flex-1 justify-center">
+    <p class="text-sm">Good morning ☀️</p>
+    <p class="text-2xl font-bold">Hanna Montana</p>
+  </div>
+  <div class="flex justify-center items-center gap-6">
+    <ModeToggleSingle client:load />
+    <img
+      src="https://avatar.iran.liara.run/public/72"
+      alt=""
+      class="object-cover w-16 h-16 rounded-full"
+    />
+  </div>
+</div>

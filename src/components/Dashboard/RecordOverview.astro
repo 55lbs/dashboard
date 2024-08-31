@@ -1,0 +1,21 @@
+---
+import { Card, CardContent, CardHeader, CardTitle } from '@55lbs/components';
+import { messages as m } from '@55lbs/i18n';
+import { RecordOverviewChart } from './RecordOverviewChart';
+---
+
+<Card
+  className="bg-gradient rounded-lg text-white grid grid-cols-3 justify-between items-center "
+>
+  <div class="flex flex-col flex-1 col-span-2 text-background">
+    <CardHeader>
+      <CardTitle>{m.dashboardRecordOverview()}</CardTitle>
+    </CardHeader>
+    <CardContent>
+      {m.exerciseCardRecordCount({ rpCount: 2, exerciseCount: 23 })}
+    </CardContent>
+  </div>
+  <div class="col-span-1">
+    <RecordOverviewChart client:load />
+  </div>
+</Card>
