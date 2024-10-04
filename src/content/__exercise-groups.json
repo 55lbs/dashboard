@@ -1,0 +1,128 @@
+[
+  {
+    "id": "2",
+    "created_at": "2023-10-03 09:53:05.028085+00",
+    "name": "USER_CUSTOM",
+    "slug": "user-custom",
+    "updated_at": "2024-09-24 23:24:05.427431+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/close-up-man-doing-crossfit-workout_23-2149080465.jpg?t=st=1727220233~exp=1727223833~hmac=6db28e8f78cfa8e75b1bb983bac9a9928c554f97951aba744f3c4ce0aa6126a3&w=2000"
+  },
+  {
+    "id": "3",
+    "created_at": "2023-10-17 17:43:06.848927+00",
+    "name": "BARBELL_SQUATS",
+    "slug": "barbell-squats",
+    "updated_at": "2024-09-24 23:23:21.678057+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/close-up-woman-doing-crossfit-workout_23-2149080457.jpg?t=st=1727220189~exp=1727223789~hmac=ac35f91c4542fce9d82f54ca00070707b61b5330077a7acbac3fce6da84db126&w=2000"
+  },
+  {
+    "id": "4",
+    "created_at": "2023-10-17 17:43:06.848927+00",
+    "name": "BARBELL_CLEANS",
+    "slug": "barbell-cleans",
+    "updated_at": "2024-09-24 23:22:22.091622+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/muscular-build-man-exercising-with-barbell-cross-training-gym_637285-2477.jpg?t=st=1727220125~exp=1727223725~hmac=051b6194974ec39a66ef1f545c4f14c80833bd79357e5f8ee5b044dd1189a6ed&w=2000"
+  },
+  {
+    "id": "5",
+    "created_at": "2023-10-17 17:43:06.848927+00",
+    "name": "BARBELL_PRESSES",
+    "slug": "barbell-presses",
+    "updated_at": "2024-09-24 23:24:21.83166+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/man-workingout-local-gym_93675-129483.jpg?t=st=1727220252~exp=1727223852~hmac=e3d1cc496278bc37ffa22bac4fcfba20338fb7cdb3e3977099f7b22434c08705&w=2000"
+  },
+  {
+    "id": "6",
+    "created_at": "2023-10-17 17:43:06.848927+00",
+    "name": "BARBELL_JERKS",
+    "slug": "barbell-jerks",
+    "updated_at": "2024-09-24 23:20:46.621875+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/premium-photo/muscular-sportsman-lifting-barbell-modern-gym_126745-4304.jpg?w=740"
+  },
+  {
+    "id": "7",
+    "created_at": "2023-10-17 17:43:06.848927+00",
+    "name": "BARBELL_SNATCHES",
+    "slug": "barbell-snatches",
+    "updated_at": "2024-09-24 23:20:24.818091+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/close-up-man-doing-crossfit-workout_23-2149080442.jpg?t=st=1724930584~exp=1724934184~hmac=f670276c07f90fef139970885d0594e520171e30642c853c77663dd3a4587d47&w=740"
+  },
+  {
+    "id": "8",
+    "created_at": "2023-10-17 17:43:06.848927+00",
+    "name": "BARBELL_DEADLIFTS",
+    "slug": "barbell-deadlifts",
+    "updated_at": "2024-09-24 23:24:55.568531+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/bodybuilding-concept-with-guy-lifting-barbell_23-2147675172.jpg?t=st=1727220284~exp=1727223884~hmac=4de71fe6df2dbe6eece8760e8815845b3386440712140740ef88a1060a412030&w=2000"
+  },
+  {
+    "id": "9",
+    "created_at": "2023-10-17 17:43:06.848927+00",
+    "name": "BARBELL_OLYMPIC_LIFTS",
+    "slug": "barbell-olympic-lifts",
+    "updated_at": "2024-09-24 23:25:13.063322+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/man-raising-barbell_23-2147675196.jpg?t=st=1727220303~exp=1727223903~hmac=41f1d9a15e7cc74990c639dc9bc3a5c26b79eea2372897b0ca183286b32822ce&w=1800"
+  },
+  {
+    "id": "10",
+    "created_at": "2023-10-17 17:43:06.848927+00",
+    "name": "BARBELL_OTHER",
+    "slug": "barbell-other",
+    "updated_at": "2024-09-24 23:25:35.288458+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/woman-training-gym_23-2147671902.jpg?t=st=1727220324~exp=1727223924~hmac=0c984747ec564630c28a1bb0fcee0453dc569ca4e2beb19aa1490621b2cf698b&w=1800"
+  },
+  {
+    "id": "11",
+    "created_at": "2023-10-17 17:47:24.384102+00",
+    "name": "BENCHMARK_GAMES",
+    "slug": "benchmark-games",
+    "updated_at": "2024-09-24 23:26:18.183312+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/crossfit-group-gym_53876-46880.jpg?t=st=1727220367~exp=1727223967~hmac=e5c061cb5f1ebe3d67f6194554ef7741636883cf7123b0dc109582a2f7bd4372&w=2000"
+  },
+  {
+    "id": "12",
+    "created_at": "2023-10-17 17:47:24.384102+00",
+    "name": "BENCHMARK_GIRLS",
+    "slug": "benchmark-girls",
+    "updated_at": "2024-09-24 23:27:35.63086+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/fitness-concept-with-woman-about-lift-barbell_23-2147675247.jpg?t=st=1727220445~exp=1727224045~hmac=a02c51a258e4e95e68452b208f8e3d5e049141935fc174fffa67a3910cfcc472&w=1800"
+  },
+  {
+    "id": "13",
+    "created_at": "2023-10-17 17:47:24.384102+00",
+    "name": "BENCHMARK_GYMNASTICS",
+    "slug": "benchmark-gymnastics",
+    "updated_at": "2024-09-24 23:21:51.685344+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/person-doing-crossfit-training_23-2149162347.jpg?t=st=1724930892~exp=1724934492~hmac=36488df01e906b51faeda41bb1f5a39976ab8bcb95a3053f148755bf183aa729&w=826"
+  },
+  {
+    "id": "14",
+    "created_at": "2023-10-17 17:47:24.384102+00",
+    "name": "BENCHMARK_HEROES",
+    "slug": "benchmark-heroes",
+    "updated_at": "2024-09-24 23:27:58.639143+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/gym-fitness-concept_23-2147671904.jpg?t=st=1727220467~exp=1727224067~hmac=85ac74c32aa5202a7920c6c9429ddf00af8dc52aecdfdaa98267c162215743c8&w=1800"
+  },
+  {
+    "id": "15",
+    "created_at": "2023-10-17 17:47:24.384102+00",
+    "name": "BENCHMARK_NOTABLES",
+    "slug": "benchmark-notables",
+    "updated_at": "2024-09-24 23:28:37.292968+00",
+    "deleted_at": "",
+    "image": "https://img.freepik.com/free-photo/fitness-gym-concept_23-2147671915.jpg?t=st=1727220506~exp=1727224106~hmac=4fd454f27311dfdf18e1d5bbe0f51ecf46a82ed199ca4c2f744421f6e10e7c07&w=1800"
+  }
+]

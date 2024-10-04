@@ -1,0 +1,107 @@
+---
+import Ads from '@/components/Dashboard/Ads.astro';
+import ExerciseCard from '@/components/Dashboard/ExerciseGroupCard.astro';
+import { OutdatedBadge } from '@/components/Dashboard/OutdatedBadge';
+import RecordOverview from '@/components/Dashboard/RecordOverview.astro';
+import Dashboard from '@/layouts/Dashboard.astro';
+import {
+  Badge,
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@55lbs/components';
+import { messages as m, runtime } from '@55lbs/i18n';
+import { supabase } from '@55lbs/supabase-client';
+import { getCollection } from 'astro:content';
+import { getEntry } from 'astro:content';
+import { LuTrophy } from 'react-icons/lu';
+
+const { exerciseGroupSlug } = Astro.params;
+
+const { data: exerciseGroup } = await getEntry(
+  'exercise-groups',
+  exerciseGroupSlug
+);
+const exercises = (
+  await getCollection('exercises', ({ data }) => {
+    return data.exercise_group_id === exerciseGroup.id;
+  })
+).map((c) => {
+  return { ...c.data, record: '100kg', ranking: 11 };
+});
+---
+
+<Dashboard title={m.exerciseGroupTitle()}>
+  <div transition:name={`exercise-group-${exerciseGroupSlug}`}>
+    <ExerciseCard
+      exercise={{
+        ...exerciseGroup,
+        name: m[`exercisesList_${exerciseGroup.name}`](),
+      }}
+    />
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+    <RecordOverview />
+    <Ads />
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-6 mt-6">
+    {
+      exercises.map(({ name, record, ranking }, key) => (
+        <a
+          href={`/${runtime.languageTag()}/dashboard/exercise-group/${exerciseGroupSlug}/exercise/${key}`}
+        >
+          <div
+            transition:name={`exercise-${exerciseGroupSlug}-${key}`}
+            class="h-full block"
+          >
+            <Card className="cursor-pointer hover:shadow-xl transition-shadow h-full">
+              <CardHeader>
+                <div class="flex">
+                  <CardDescription className="text-base flex-1">
+                    {name}
+                  </CardDescription>
+                  {ranking < 11 ? (
+                    <Badge className="bg-gradient flex gap-2">
+                      Top 10 <LuTrophy />
+                    </Badge>
+                  ) : ranking < 31 ? (
+                    <Badge className="bg-gradient">Top 30</Badge>
+                  ) : ranking < 101 ? (
+                    <Badge className="bg-gradient">Top 100</Badge>
+                  ) : null}
+                </div>
+                <CardTitle className="text-3xl">{record}</CardTitle>
+              </CardHeader>
+              {record !== '-' && (
+                <CardFooter className="flex gap-2">
+                  <OutdatedBadge client:load />
+                  {/* <Badge variant="default">Insight</Badge> */}
+                </CardFooter>
+              )}
+            </Card>
+          </div>
+        </a>
+      ))
+    }
+
+    <!-- {
+      exercises.map(({ name, record }) => (
+        <Card className="bg-transparent flex items-center">
+          <CardHeader className="flex-1">
+            <CardTitle>{name}</CardTitle>
+          </CardHeader>
+          <CardContent className="p-6">
+            <p class="text-lg">{record}</p>
+          </CardContent>
+          <div class="flex pr-3">
+            <LuChevronRight size="2rem" />
+          </div>
+        </Card>
+      ))
+    } -->
+  </div>
+</Dashboard>

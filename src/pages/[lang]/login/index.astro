@@ -4,7 +4,9 @@ import { Button, Label, Input } from '@55lbs/components';
 import Layout from '../../../layouts/Layout.astro';
 import { messages as m, runtime } from '@55lbs/i18n';
 import Logo from '@/components/Logo.astro';
+import { supabase } from '@55lbs/supabase-client';
 
+console.log({ session: (await supabase.auth.getSession()).data.session });
 // Use this is you want to statically generate pages (output: 'server' in astro.config.mjs)
 // import { availableLanguageTags } from '../../paraglide/runtime';
 // export function getStaticPaths() {
@@ -41,8 +43,8 @@ const isLoading = false;
             </p>
           </div>
 
-          <div class="grid gap-6">
-            <form>
+          <form action="/api/auth/signin" method="post">
+            <div class="grid gap-6">
               <div class="grid gap-2">
                 <div class="grid gap-1">
                   <Label className="sr-only" htmlFor="email">{m.email()}</Label>
@@ -56,7 +58,7 @@ const isLoading = false;
                     disabled={isLoading}
                   />
                 </div>
-                <Button disabled={isLoading}>
+                <Button disabled={isLoading} type="submit">
                   {
                     isLoading && (
                       <FaSpinner className="mr-2 h-4 w-4 animate-spin" />
@@ -65,38 +67,29 @@ const isLoading = false;
                   {m.loginSignInWithEmail()}
                 </Button>
               </div>
-            </form>
-            <div class="relative">
-              <div class="absolute inset-0 flex items-center">
-                <span class="w-full border-t"></span>
+              <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                  <span class="w-full border-t"></span>
+                </div>
+                <div class="relative flex justify-center text-xs uppercase">
+                  <span class="bg-white px-2 text-muted-foreground">
+                    {m.loginOrContinueWith()}
+                  </span>
+                </div>
               </div>
-              <div class="relative flex justify-center text-xs uppercase">
-                <span class="bg-white px-2 text-muted-foreground">
-                  {m.loginOrContinueWith()}
-                </span>
-              </div>
-            </div>
-            <a
-              href={`/${runtime.languageTag()}/dashboard`}
-              class="w-full block"
-            >
+
               <Button
                 variant="default"
-                type="button"
-                disabled={isLoading}
+                type="submit"
                 className="w-full"
+                value="google"
+                name="provider"
               >
-                {
-                  isLoading ? (
-                    <FaSpinner className="mr-2 h-4 w-4 animate-spin" />
-                  ) : (
-                    <FaGoogle className="mr-2 h-4 w-4" />
-                  )
-                }{' '}
+                <FaGoogle className="mr-2 h-4 w-4" />
                 {m.google()}
               </Button>
-            </a>
-          </div>
+            </div>
+          </form>
           <p class="px-8 text-center text-sm text-muted-foreground">
             {m.loginByClickingContinueYouAgreeToOur()}{' '}
             <a

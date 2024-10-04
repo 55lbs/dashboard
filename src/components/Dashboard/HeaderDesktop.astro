@@ -1,17 +1,23 @@
 ---
+import { getHeaderInfos } from '@/utils/header.utils';
+import { messages as m } from '@55lbs/i18n';
 import { ModeToggleSingle } from '../ModeToggleSingle';
+
+const { avatar, greeting, name } = await getHeaderInfos();
 ---
 
 <div class="flex w-full p-6 justify-between gap-4">
   <div class="flex flex-col flex-1 justify-center">
-    <p class="text-sm">Good morning ☀️</p>
-    <p class="text-2xl font-bold">Hanna Montana</p>
+    <p class="text-sm">{greeting}</p>
+    <p class="text-2xl font-bold">{name}</p>
   </div>
   <div class="flex justify-center items-center gap-6">
     <ModeToggleSingle client:load />
+
     <img
-      src="https://avatar.iran.liara.run/public/72"
-      alt=""
+      src={avatar}
+      loading="lazy"
+      alt={m.profileAvatar()}
       class="object-cover w-16 h-16 rounded-full"
     />
   </div>

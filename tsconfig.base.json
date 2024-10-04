@@ -2,11 +2,14 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "paths": {
       "@/*": ["./src/*"],
       "@55lbs/components": ["libs/components/src/index.ts"],
       "@55lbs/i18n": ["libs/i18n/src/index.ts"],
       "@55lbs/internal-tools": ["tools/src/index.ts"],
+      "@55lbs/supabase-client": ["libs/supabase-client/src/index.ts"],
       "@55lbs/ui-utils": ["libs/ui-utils/src/index.ts"]
     }
   }

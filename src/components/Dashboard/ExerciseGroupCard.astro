@@ -1,0 +1,57 @@
+---
+import { Database } from '@/models/Database';
+import { ExerciseGroup } from '@/models/ExerciseGroup';
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@55lbs/components';
+import { messages as m } from '@55lbs/i18n';
+import { AstroBuiltinAttributes } from 'astro';
+import { getCollection } from 'astro:content';
+
+export type Props = {
+  exercise: ExerciseGroup;
+  class?: AstroBuiltinAttributes['class:list'];
+};
+
+const { exercise, class: classList, ...props } = Astro.props;
+
+const exerciseGroupTotal =
+  (
+    await getCollection(
+      'exercises',
+      ({ data }) => data.exercise_group_id === exercise.id
+    )
+  ).length ?? 0;
+const userTotal = await Database.getUserRecordCount({
+  exerciseId: exercise.id,
+});
+---
+
+<Card
+  className={`exercise-card shadow-sm cursor-pointer group/card ${classList}`}
+  {...props}
+>
+  <div
+    class="h-24 lg:h-32 w-full object-cover rounded-t-lg relative overflow-hidden"
+  >
+    <img
+      src={exercise.image}
+      alt={exercise.name}
+      class="h-full w-full object-cover rounded-t-lg group-hover/card:scale-110 transition-transform duration-500"
+    />
+  </div>
+  <CardHeader className="p-2">
+    <CardTitle>{exercise.name}</CardTitle>
+    <CardDescription>
+      {
+        m.exerciseCardRecordCount({
+          rpCount: userTotal,
+          exerciseCount: exerciseGroupTotal,
+        })
+      }
+    </CardDescription>
+  </CardHeader>
+</Card>

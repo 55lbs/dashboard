@@ -1,28 +1,20 @@
 ---
 import Ads from '@/components/Dashboard/Ads.astro';
-import ExerciseCard from '@/components/Dashboard/ExerciseCard.astro';
+import ExerciseCard from '@/components/Dashboard/ExerciseGroupCard.astro';
 import RecordOverview from '@/components/Dashboard/RecordOverview.astro';
 import Dashboard from '@/layouts/Dashboard.astro';
 import { messages as m, runtime } from '@55lbs/i18n';
+import { getCollection } from 'astro:content';
 
-const excercises = [
-  {
-    name: 'Snatches',
-    img: 'https://img.freepik.com/free-photo/close-up-man-doing-crossfit-workout_23-2149080442.jpg?t=st=1724930584~exp=1724934184~hmac=f670276c07f90fef139970885d0594e520171e30642c853c77663dd3a4587d47&w=740',
-  },
-  {
-    name: 'Clean & Jerks',
-    img: 'https://img.freepik.com/premium-photo/muscular-sportsman-lifting-barbell-modern-gym_126745-4304.jpg?w=740',
-  },
-  {
-    name: 'Gynastics',
-    img: 'https://img.freepik.com/free-photo/person-doing-crossfit-training_23-2149162347.jpg?t=st=1724930892~exp=1724934492~hmac=36488df01e906b51faeda41bb1f5a39976ab8bcb95a3053f148755bf183aa729&w=826',
-  },
-  {
-    name: 'Crossfit Games',
-    img: 'https://img.freepik.com/free-photo/close-up-man-doing-crossfit-workout_23-2149080442.jpg?t=st=1724930584~exp=1724934184~hmac=f670276c07f90fef139970885d0594e520171e30642c853c77663dd3a4587d47&w=740',
-  },
-];
+const exerciseGroups = (await getCollection('exercise-groups')).map(
+  (c) => c.data
+);
+
+// const test2 = await getEntry('exercise-groups', 'barbell-snatches');
+// const test3 = await getCollection('exercises', ({ data }) => {
+//   return data.exercise_group_id === test2.data.id;
+//   return true;
+// });
 ---
 
 <Dashboard title={m.dashboardTitle()}>
@@ -36,12 +28,17 @@ const excercises = [
       <h1 class="text-2xl font-semibold tracking-tight">{m.categories()}</h1>
       <div class="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {
-          excercises.map((ex, key) => (
+          exerciseGroups.map((ex) => (
             <a
-              href={`/${runtime.languageTag()}/dashboard/exercise-group/${key}`}
+              href={`/${runtime.languageTag()}/dashboard/exercise-group/${ex.slug}`}
             >
-              <div transition:name={`poster-${key}`}>
-                <ExerciseCard exercise={{ name: ex.name, img: ex.img }} />
+              <div transition:name={`exercise-group-${ex.slug}`}>
+                <ExerciseCard
+                  exercise={{
+                    ...ex,
+                    name: m[`exercisesList_${ex.name}`](),
+                  }}
+                />
               </div>
             </a>
           ))
@@ -50,10 +47,3 @@ const excercises = [
     </div>
   </div>
 </Dashboard>
-
-<script>
-  // const exerciseCard = document.querySelectorAll('.exercise-card');
-  // exerciseCard.forEach((c) =>
-  //   c.addEventListener('click', () => alert(c.textContent))
-  // );
-</script>
