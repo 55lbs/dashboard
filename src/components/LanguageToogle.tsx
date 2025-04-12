@@ -29,6 +29,7 @@ export function LanguageToggle({
         {availableLanguages.map((l) => (
           <DropdownMenuItem
             className="uppercase"
+            key={l}
             onClick={() => handleLanguageClick(l)}
           >
             {l}
